@@ -3,165 +3,190 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Мои ИИ-персонажи</title>
 
 <style>
-*{box-sizing:border-box}
+
+*{
+    box-sizing:border-box;
+}
 
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f5f5f7;
-  color:#222
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f5f5f7;
+    color:#222;
 }
 
 header{
-  background:white;
-  padding:20px;
-  border-bottom:1px solid #ddd;
-  font-size:22px;
-  font-weight:bold
+    background:white;
+    padding:20px;
+    border-bottom:1px solid #ddd;
+    font-size:22px;
+    font-weight:bold;
 }
 
 .container{
-  max-width:900px;
-  margin:auto;
-  padding:25px 18px
+    max-width:900px;
+    margin:auto;
+    padding:25px 18px;
 }
 
-h1{font-size:36px;margin-bottom:8px}
-h2{margin-top:0}
+h1{
+    font-size:36px;
+    margin-bottom:8px;
+}
 
 .subtitle{
-  color:#666;
-  font-size:18px;
-  margin-bottom:25px
+    color:#666;
+    font-size:18px;
+    margin-bottom:25px;
 }
 
 .buttons{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
 }
 
 button{
-  border:0;
-  border-radius:12px;
-  padding:14px 18px;
-  font-size:16px;
-  cursor:pointer
+    border:0;
+    border-radius:12px;
+    padding:15px 19px;
+    font-size:16px;
+    cursor:pointer;
 }
 
 .primary{
-  background:#222;
-  color:white
+    background:#222;
+    color:white;
 }
 
 .secondary{
-  background:white;
-  border:1px solid #ddd
+    background:white;
+    border:1px solid #ddd;
 }
 
-.card,.form{
-  background:white;
-  border-radius:18px;
-  padding:22px;
-  margin-top:22px;
-  box-shadow:0 4px 18px rgba(0,0,0,.06)
+.chat-button{
+    width:100%;
+    margin-top:15px;
+    font-size:18px;
+    padding:17px;
 }
 
-.form{display:none}
-.form.active{display:block}
+.card,
+.form{
+    background:white;
+    border-radius:18px;
+    padding:22px;
+    margin-top:22px;
+    box-shadow:0 4px 18px rgba(0,0,0,.06);
+}
+
+.form{
+    display:none;
+}
+
+.form.active{
+    display:block;
+}
 
 label{
-  display:block;
-  font-weight:bold;
-  margin:16px 0 7px
+    display:block;
+    font-weight:bold;
+    margin:16px 0 7px;
 }
 
-input,textarea,select{
-  width:100%;
-  padding:13px;
-  border:1px solid #ccc;
-  border-radius:10px;
-  font-size:16px;
-  font-family:Arial,sans-serif
+input,
+textarea,
+select{
+    width:100%;
+    padding:13px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    font-size:16px;
+    font-family:Arial,sans-serif;
 }
 
 textarea{
-  min-height:120px;
-  resize:vertical
+    min-height:120px;
+    resize:vertical;
 }
 
 .form-buttons{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:20px
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:20px;
 }
 
 .item{
-  border:1px solid #eee;
-  border-radius:14px;
-  padding:16px;
-  margin-top:12px
+    border:1px solid #eee;
+    border-radius:14px;
+    padding:16px;
+    margin-top:12px;
 }
 
 .item h3{
-  margin:0 0 8px
+    margin:0 0 8px;
 }
 
 .small{
-  color:#666;
-  white-space:pre-wrap;
-  line-height:1.5
+    color:#666;
+    line-height:1.5;
+    white-space:pre-wrap;
 }
 
 .delete{
-  margin-top:12px;
-  background:#eee;
-  padding:9px 13px;
-  font-size:14px
+    margin-top:12px;
+    background:#eee;
+    padding:9px 13px;
+    font-size:14px;
 }
 
 .chat-messages{
-  background:#f5f5f7;
-  border-radius:14px;
-  padding:15px;
-  min-height:280px;
-  max-height:500px;
-  overflow-y:auto;
-  margin-bottom:15px
+    background:#f5f5f7;
+    border-radius:14px;
+    padding:15px;
+    min-height:280px;
+    max-height:500px;
+    overflow-y:auto;
+    margin:18px 0;
 }
 
 .message{
-  padding:11px 14px;
-  border-radius:12px;
-  margin:8px 0;
-  max-width:90%;
-  white-space:pre-wrap
+    padding:11px 14px;
+    border-radius:12px;
+    margin:8px 0;
+    max-width:90%;
+    white-space:pre-wrap;
+    line-height:1.45;
 }
 
 .user-message{
-  background:#222;
-  color:white;
-  margin-left:auto
+    background:#222;
+    color:white;
+    margin-left:auto;
 }
 
 .character-message{
-  background:white;
-  border:1px solid #ddd
+    background:white;
+    border:1px solid #ddd;
 }
 
 .empty{
-  color:#777
+    color:#777;
 }
+
 </style>
 </head>
 
 <body>
 
-<header>🤖 Мои ИИ-персонажи</header>
+<header>
+🤖 Мои ИИ-персонажи
+</header>
 
 <div class="container">
 
@@ -171,130 +196,233 @@ textarea{
 Твои персонажи, сценарии и чаты находятся здесь.
 </div>
 
+
+<!-- ГЛАВНЫЕ КНОПКИ -->
+
 <div class="buttons">
 
-<button class="primary" onclick="showCharacterForm()">
+<button class="primary"
+onclick="showCharacterForm()">
+
 ＋ Создать персонажа
+
 </button>
 
-<button class="secondary" onclick="showScenarioForm()">
+
+<button class="secondary"
+onclick="showScenarioForm()">
+
 📖 Создать сценарий
-</button>
 
-<button class="primary" onclick="openChatSetup()">
-💬 Новый чат
 </button>
 
 </div>
+
+
+<button class="primary chat-button"
+onclick="openChatSetup()">
+
+💬 НОВЫЙ ЧАТ
+
+</button>
+
 
 
 <!-- СОЗДАНИЕ ПЕРСОНАЖА -->
 
-<div id="characterForm" class="form">
+<div id="characterForm"
+class="form">
 
 <h2>👤 Создать персонажа</h2>
 
-<label>Имя персонажа</label>
-<input id="characterName" placeholder="Например: Анна">
 
-<label>Пол</label>
+<label>
+Имя персонажа
+</label>
+
+<input
+id="characterName"
+placeholder="Например: Анна"
+>
+
+
+<label>
+Пол
+</label>
 
 <select id="characterGender">
+
 <option>Не указан</option>
+
 <option>Мужской</option>
+
 <option>Женский</option>
+
 <option>Другой</option>
+
 </select>
 
-<label>Краткое описание</label>
 
-<textarea id="characterDescription"
-placeholder="Кто этот персонаж?"></textarea>
+<label>
+Краткое описание
+</label>
 
-<label>Характер</label>
+<textarea
+id="characterDescription"
+placeholder="Кто этот персонаж?"
+></textarea>
 
-<textarea id="characterPersonality"
-placeholder="Опиши характер, привычки, манеру общения..."></textarea>
 
-<label>Дополнительные инструкции</label>
+<label>
+Характер
+</label>
 
-<textarea id="characterInstructions"
-placeholder="Как персонаж должен вести себя в диалоге?"></textarea>
+<textarea
+id="characterPersonality"
+placeholder="Опиши характер, привычки и манеру общения..."
+></textarea>
 
-<label>Первое сообщение</label>
 
-<textarea id="characterGreeting"
-placeholder="Что персонаж скажет первым?"></textarea>
+<label>
+Дополнительные инструкции
+</label>
+
+<textarea
+id="characterInstructions"
+placeholder="Как персонаж должен вести себя?"
+></textarea>
+
+
+<label>
+Первое сообщение
+</label>
+
+<textarea
+id="characterGreeting"
+placeholder="Что персонаж скажет пользователю первым?"
+></textarea>
+
 
 <div class="form-buttons">
 
-<button class="primary" onclick="saveCharacter()">
+<button
+class="primary"
+onclick="saveCharacter()">
+
 Сохранить персонажа
+
 </button>
 
-<button class="secondary" onclick="closeAllForms()">
+
+<button
+class="secondary"
+onclick="closeForms()">
+
 Отмена
+
 </button>
 
 </div>
 
 </div>
+
 
 
 <!-- СОЗДАНИЕ СЦЕНАРИЯ -->
 
-<div id="scenarioForm" class="form">
+<div id="scenarioForm"
+class="form">
 
 <h2>📖 Создать сценарий</h2>
 
-<label>Название сценария</label>
 
-<input id="scenarioName"
-placeholder="Например: Империя Юань">
+<label>
+Название сценария
+</label>
 
-<label>Сценарий</label>
+<input
+id="scenarioName"
+placeholder="Например: Империя Юань"
+>
 
-<textarea id="scenarioText"
-style="min-height:300px"
-placeholder="Свободно опиши весь сценарий, мир, события, обстоятельства и правила..."></textarea>
+
+<label>
+Сценарий
+</label>
+
+<textarea
+id="scenarioText"
+style="min-height:320px"
+placeholder="Свободно опиши весь сценарий, мир, события и обстоятельства..."
+></textarea>
+
 
 <div class="form-buttons">
 
-<button class="primary" onclick="saveScenario()">
+<button
+class="primary"
+onclick="saveScenario()">
+
 Сохранить сценарий
+
 </button>
 
-<button class="secondary" onclick="closeAllForms()">
+
+<button
+class="secondary"
+onclick="closeForms()">
+
 Отмена
+
 </button>
 
 </div>
 
 </div>
+
 
 
 <!-- ВЫБОР ПЕРСОНАЖА И СЦЕНАРИЯ -->
 
-<div id="chatSetup" class="form">
+<div id="chatSetup"
+class="form">
 
 <h2>💬 Новый чат</h2>
 
-<label>Персонаж</label>
 
-<select id="chatCharacter"></select>
+<label>
+Выбери персонажа
+</label>
 
-<label>Сценарий</label>
+<select id="chatCharacter">
+</select>
 
-<select id="chatScenario"></select>
+
+<label>
+Выбери сценарий
+</label>
+
+<select id="chatScenario">
+</select>
+
 
 <div class="form-buttons">
 
-<button class="primary" onclick="startChat()">
-Начать чат
+<button
+class="primary"
+onclick="startChat()">
+
+▶ Начать чат
+
 </button>
 
-<button class="secondary" onclick="closeAllForms()">
+
+<button
+class="secondary"
+onclick="closeForms()">
+
 Отмена
+
 </button>
 
 </div>
@@ -302,51 +430,82 @@ placeholder="Свободно опиши весь сценарий, мир, со
 </div>
 
 
-<!-- ОКНО ЧАТА -->
 
-<div id="chatWindow" class="form">
+<!-- ЧАТ -->
 
-<h2 id="chatTitle">💬 Чат</h2>
+<div id="chatWindow"
+class="form">
 
-<div id="chatInfo" class="small"></div>
+<h2 id="chatTitle">
+💬 Чат
+</h2>
 
-<div id="chatMessages" class="chat-messages"></div>
 
-<textarea id="messageInput"
+<div
+id="chatInfo"
+class="small">
+</div>
+
+
+<div
+id="chatMessages"
+class="chat-messages">
+</div>
+
+
+<textarea
+id="messageInput"
 placeholder="Напиши сообщение..."
-style="min-height:80px"></textarea>
+style="min-height:80px"
+></textarea>
+
 
 <div class="form-buttons">
 
-<button class="primary" onclick="sendMessage()">
+<button
+class="primary"
+onclick="sendMessage()">
+
 Отправить
+
 </button>
 
-<button class="secondary" onclick="closeChat()">
+
+<button
+class="secondary"
+onclick="closeChat()">
+
 Закрыть чат
+
 </button>
 
 </div>
 
 </div>
+
 
 
 <!-- ПЕРСОНАЖИ -->
 
 <div class="card">
 
-<h2>👤 Мои персонажи</h2>
+<h2>
+👤 Мои персонажи
+</h2>
 
 <div id="characters"></div>
 
 </div>
 
 
+
 <!-- СЦЕНАРИИ -->
 
 <div class="card">
 
-<h2>📚 Мои сценарии</h2>
+<h2>
+📚 Мои сценарии
+</h2>
 
 <div id="scenarios"></div>
 
@@ -355,21 +514,47 @@ style="min-height:80px"></textarea>
 </div>
 
 
+
 <script>
 
+
+/* =========================
+   ПОЛУЧЕНИЕ ДАННЫХ
+========================= */
+
+
 function getCharacters(){
-return JSON.parse(localStorage.getItem("characters") || "[]");
+
+return JSON.parse(
+localStorage.getItem("characters") || "[]"
+);
+
 }
+
 
 function getScenarios(){
-return JSON.parse(localStorage.getItem("scenarios") || "[]");
+
+return JSON.parse(
+localStorage.getItem("scenarios") || "[]"
+);
+
 }
 
 
-function closeAllForms(){
 
-document.querySelectorAll(".form").forEach(function(form){
+/* =========================
+   ФОРМЫ
+========================= */
+
+
+function closeForms(){
+
+document
+.querySelectorAll(".form")
+.forEach(function(form){
+
 form.classList.remove("active");
+
 });
 
 }
@@ -377,32 +562,59 @@ form.classList.remove("active");
 
 function showCharacterForm(){
 
-closeAllForms();
+closeForms();
 
-document.getElementById("characterForm")
+document
+.getElementById("characterForm")
 .classList.add("active");
+
+window.scrollTo({
+top:document.getElementById("characterForm").offsetTop,
+behavior:"smooth"
+});
 
 }
 
 
 function showScenarioForm(){
 
-closeAllForms();
+closeForms();
 
-document.getElementById("scenarioForm")
+document
+.getElementById("scenarioForm")
 .classList.add("active");
 
+window.scrollTo({
+top:document.getElementById("scenarioForm").offsetTop,
+behavior:"smooth"
+});
+
 }
+
+
+
+/* =========================
+   ПЕРСОНАЖ
+========================= */
 
 
 function saveCharacter(){
 
-const name=document.getElementById("characterName").value.trim();
+const name=
+document
+.getElementById("characterName")
+.value
+.trim();
+
 
 if(!name){
+
 alert("Введите имя персонажа.");
+
 return;
+
 }
+
 
 const character={
 
@@ -410,30 +622,44 @@ id:Date.now(),
 
 name:name,
 
-gender:document.getElementById("characterGender").value,
+gender:
+document
+.getElementById("characterGender")
+.value,
 
 description:
-document.getElementById("characterDescription").value,
+document
+.getElementById("characterDescription")
+.value,
 
 personality:
-document.getElementById("characterPersonality").value,
+document
+.getElementById("characterPersonality")
+.value,
 
 instructions:
-document.getElementById("characterInstructions").value,
+document
+.getElementById("characterInstructions")
+.value,
 
 greeting:
-document.getElementById("characterGreeting").value
+document
+.getElementById("characterGreeting")
+.value
 
 };
+
 
 const characters=getCharacters();
 
 characters.push(character);
 
+
 localStorage.setItem(
 "characters",
 JSON.stringify(characters)
 );
+
 
 document.getElementById("characterName").value="";
 document.getElementById("characterDescription").value="";
@@ -441,23 +667,40 @@ document.getElementById("characterPersonality").value="";
 document.getElementById("characterInstructions").value="";
 document.getElementById("characterGreeting").value="";
 
-closeAllForms();
+
+closeForms();
 
 displayCharacters();
+
 
 alert("Персонаж создан!");
 
 }
 
 
+
+/* =========================
+   СЦЕНАРИЙ
+========================= */
+
+
 function saveScenario(){
 
-const name=document.getElementById("scenarioName").value.trim();
+const name=
+document
+.getElementById("scenarioName")
+.value
+.trim();
+
 
 if(!name){
+
 alert("Введите название сценария.");
+
 return;
+
 }
+
 
 const scenario={
 
@@ -466,72 +709,51 @@ id:Date.now(),
 name:name,
 
 text:
-document.getElementById("scenarioText").value
+document
+.getElementById("scenarioText")
+.value
 
 };
+
 
 const scenarios=getScenarios();
 
 scenarios.push(scenario);
+
 
 localStorage.setItem(
 "scenarios",
 JSON.stringify(scenarios)
 );
 
+
 document.getElementById("scenarioName").value="";
 document.getElementById("scenarioText").value="";
 
-closeAllForms();
+
+closeForms();
 
 displayScenarios();
+
 
 alert("Сценарий создан!");
 
 }
 
 
-function deleteCharacter(index){
 
-const characters=getCharacters();
-
-if(!confirm("Удалить этого персонажа?")) return;
-
-characters.splice(index,1);
-
-localStorage.setItem(
-"characters",
-JSON.stringify(characters)
-);
-
-displayCharacters();
-
-}
-
-
-function deleteScenario(index){
-
-const scenarios=getScenarios();
-
-if(!confirm("Удалить этот сценарий?")) return;
-
-scenarios.splice(index,1);
-
-localStorage.setItem(
-"scenarios",
-JSON.stringify(scenarios)
-);
-
-displayScenarios();
-
-}
+/* =========================
+   ОТОБРАЖЕНИЕ ПЕРСОНАЖЕЙ
+========================= */
 
 
 function displayCharacters(){
 
-const box=document.getElementById("characters");
+const box=
+document.getElementById("characters");
 
 const characters=getCharacters();
+
 
 if(characters.length===0){
 
@@ -542,7 +764,9 @@ return;
 
 }
 
+
 box.innerHTML="";
+
 
 characters.forEach(function(character,index){
 
@@ -550,19 +774,27 @@ box.innerHTML+=`
 
 <div class="item">
 
-<h3>🤖 ${escapeHtml(character.name)}</h3>
+<h3>
+🤖 ${escapeHtml(character.name)}
+</h3>
 
 <div class="small">
-Пол: ${escapeHtml(character.gender)}
+
+Пол:
+${escapeHtml(character.gender)}
+
 </div>
 
 <p>
 ${escapeHtml(character.description)}
 </p>
 
-<button class="delete"
+<button
+class="delete"
 onclick="deleteCharacter(${index})">
+
 Удалить
+
 </button>
 
 </div>
@@ -574,11 +806,19 @@ onclick="deleteCharacter(${index})">
 }
 
 
+
+/* =========================
+   ОТОБРАЖЕНИЕ СЦЕНАРИЕВ
+========================= */
+
+
 function displayScenarios(){
 
-const box=document.getElementById("scenarios");
+const box=
+document.getElementById("scenarios");
 
 const scenarios=getScenarios();
+
 
 if(scenarios.length===0){
 
@@ -589,7 +829,9 @@ return;
 
 }
 
+
 box.innerHTML="";
+
 
 scenarios.forEach(function(scenario,index){
 
@@ -597,15 +839,22 @@ box.innerHTML+=`
 
 <div class="item">
 
-<h3>📖 ${escapeHtml(scenario.name)}</h3>
+<h3>
+📖 ${escapeHtml(scenario.name)}
+</h3>
 
 <div class="small">
+
 ${escapeHtml(scenario.text)}
+
 </div>
 
-<button class="delete"
+<button
+class="delete"
 onclick="deleteScenario(${index})">
+
 Удалить
+
 </button>
 
 </div>
@@ -617,67 +866,159 @@ onclick="deleteScenario(${index})">
 }
 
 
+
+/* =========================
+   УДАЛЕНИЕ
+========================= */
+
+
+function deleteCharacter(index){
+
+if(!confirm(
+"Удалить этого персонажа?"
+)) return;
+
+
+const characters=getCharacters();
+
+characters.splice(index,1);
+
+
+localStorage.setItem(
+"characters",
+JSON.stringify(characters)
+);
+
+
+displayCharacters();
+
+}
+
+
+function deleteScenario(index){
+
+if(!confirm(
+"Удалить этот сценарий?"
+)) return;
+
+
+const scenarios=getScenarios();
+
+scenarios.splice(index,1);
+
+
+localStorage.setItem(
+"scenarios",
+JSON.stringify(scenarios)
+);
+
+
+displayScenarios();
+
+}
+
+
+
+/* =========================
+   НОВЫЙ ЧАТ
+========================= */
+
+
 function openChatSetup(){
 
 const characters=getCharacters();
 
 const scenarios=getScenarios();
 
+
 if(characters.length===0){
 
-alert("Сначала создай хотя бы одного персонажа.");
+alert(
+"Сначала создай хотя бы одного персонажа."
+);
 
 return;
 
 }
+
 
 if(scenarios.length===0){
 
-alert("Сначала создай хотя бы один сценарий.");
+alert(
+"Сначала создай хотя бы один сценарий."
+);
 
 return;
 
 }
 
+
 const characterSelect=
-document.getElementById("chatCharacter");
+document.getElementById(
+"chatCharacter"
+);
 
 const scenarioSelect=
-document.getElementById("chatScenario");
+document.getElementById(
+"chatScenario"
+);
+
 
 characterSelect.innerHTML="";
+
 scenarioSelect.innerHTML="";
+
 
 characters.forEach(function(character,index){
 
-characterSelect.innerHTML+=`
+const option=
+document.createElement("option");
 
-<option value="${index}">
-${escapeHtml(character.name)}
-</option>
+option.value=index;
 
-`;
+option.textContent=
+character.name;
+
+characterSelect.appendChild(option);
 
 });
+
 
 scenarios.forEach(function(scenario,index){
 
-scenarioSelect.innerHTML+=`
+const option=
+document.createElement("option");
 
-<option value="${index}">
-${escapeHtml(scenario.name)}
-</option>
+option.value=index;
 
-`;
+option.textContent=
+scenario.name;
+
+scenarioSelect.appendChild(option);
 
 });
 
-closeAllForms();
 
-document.getElementById("chatSetup")
+closeForms();
+
+
+document
+.getElementById("chatSetup")
 .classList.add("active");
 
+
+window.scrollTo({
+top:document.getElementById("chatSetup").offsetTop,
+behavior:"smooth"
+});
+
 }
+
+
+
+/* =========================
+   НАЧАЛО ЧАТА
+========================= */
 
 
 function startChat(){
@@ -686,73 +1027,140 @@ const characters=getCharacters();
 
 const scenarios=getScenarios();
 
+
 const character=
 characters[
+parseInt(
 document.getElementById("chatCharacter").value
+)
 ];
+
 
 const scenario=
 scenarios[
+parseInt(
 document.getElementById("chatScenario").value
+)
 ];
+
+
+if(!character || !scenario){
+
+alert(
+"Выбери персонажа и сценарий."
+);
+
+return;
+
+}
+
+
+const chatKey=
+"chat_" +
+character.id +
+"_" +
+scenario.id;
+
+
+let messages=
+JSON.parse(
+localStorage.getItem(chatKey) || "[]"
+);
+
 
 localStorage.setItem(
 "activeCharacter",
 JSON.stringify(character)
 );
 
+
 localStorage.setItem(
 "activeScenario",
 JSON.stringify(scenario)
 );
 
-const chatKey=
-"chat_"+character.id+"_"+scenario.id;
 
-let messages=
-JSON.parse(localStorage.getItem(chatKey) || "[]");
+localStorage.setItem(
+"activeChatKey",
+chatKey
+);
 
-document.getElementById("chatTitle").textContent=
-"💬 "+character.name;
 
-document.getElementById("chatInfo").innerHTML=
-"<b>Сценарий:</b> "+
+document.getElementById(
+"chatTitle"
+).textContent=
+"💬 " + character.name;
+
+
+document.getElementById(
+"chatInfo"
+).innerHTML=
+"<b>Сценарий:</b> " +
 escapeHtml(scenario.name);
 
-renderMessages(messages,character);
 
-closeAllForms();
+renderMessages(
+messages,
+character
+);
 
-document.getElementById("chatWindow")
+
+closeForms();
+
+
+document
+.getElementById("chatWindow")
 .classList.add("active");
 
+
+window.scrollTo({
+top:document.getElementById("chatWindow").offsetTop,
+behavior:"smooth"
+});
+
 }
+
+
+
+/* =========================
+   ОТПРАВКА СООБЩЕНИЯ
+========================= */
 
 
 function sendMessage(){
 
 const input=
-document.getElementById("messageInput");
+document.getElementById(
+"messageInput"
+);
 
-const text=input.value.trim();
 
-if(!text)return;
+const text=
+input.value.trim();
+
+
+if(!text) return;
+
 
 const character=
 JSON.parse(
-localStorage.getItem("activeCharacter")
+localStorage.getItem(
+"activeCharacter"
+)
 );
 
-const scenario=
-JSON.parse(
-localStorage.getItem("activeScenario")
-);
 
 const chatKey=
-"chat_"+character.id+"_"+scenario.id;
+localStorage.getItem(
+"activeChatKey"
+);
+
 
 let messages=
-JSON.parse(localStorage.getItem(chatKey) || "[]");
+JSON.parse(
+localStorage.getItem(chatKey) || "[]"
+);
+
 
 messages.push({
 
@@ -762,30 +1170,56 @@ text:text
 
 });
 
+
 localStorage.setItem(
 chatKey,
 JSON.stringify(messages)
 );
 
+
 input.value="";
 
-renderMessages(messages,character);
+
+renderMessages(
+messages,
+character
+);
+
 
 }
 
 
-function renderMessages(messages,character){
+
+/* =========================
+   ОТОБРАЖЕНИЕ ЧАТА
+========================= */
+
+
+function renderMessages(
+messages,
+character
+){
 
 const box=
-document.getElementById("chatMessages");
+document.getElementById(
+"chatMessages"
+);
+
 
 box.innerHTML="";
+
 
 if(messages.length===0){
 
 box.innerHTML=`
 
 <div class="message character-message">
+
+<b>
+${escapeHtml(character.name)}:
+</b>
+
+<br><br>
 
 ${escapeHtml(
 character.greeting ||
@@ -800,6 +1234,7 @@ return;
 
 }
 
+
 messages.forEach(function(message){
 
 if(message.sender==="user"){
@@ -808,7 +1243,9 @@ box.innerHTML+=`
 
 <div class="message user-message">
 
-<b>Ты:</b><br>
+<b>Ты:</b>
+
+<br>
 
 ${escapeHtml(message.text)}
 
@@ -822,7 +1259,11 @@ box.innerHTML+=`
 
 <div class="message character-message">
 
-<b>${escapeHtml(character.name)}:</b><br>
+<b>
+${escapeHtml(character.name)}:
+</b>
+
+<br>
 
 ${escapeHtml(message.text)}
 
@@ -834,17 +1275,32 @@ ${escapeHtml(message.text)}
 
 });
 
-box.scrollTop=box.scrollHeight;
+
+box.scrollTop=
+box.scrollHeight;
 
 }
+
+
+
+/* =========================
+   ЗАКРЫТИЕ ЧАТА
+========================= */
 
 
 function closeChat(){
 
-document.getElementById("chatWindow")
+document
+.getElementById("chatWindow")
 .classList.remove("active");
 
 }
+
+
+
+/* =========================
+   ЗАЩИТА HTML
+========================= */
 
 
 function escapeHtml(text){
@@ -864,9 +1320,16 @@ return String(text || "")
 }
 
 
+
+/* =========================
+   ЗАПУСК
+========================= */
+
+
 displayCharacters();
 
 displayScenarios();
+
 
 </script>
 
