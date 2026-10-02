@@ -1,110 +1,484 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мои ИИ-персонажи</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мои ИИ-персонажи</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f5f7;
-            color: #222;
-        }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f7;
+  color: #222;
+}
 
-        header {
-            background: #ffffff;
-            padding: 18px;
-            font-size: 22px;
-            font-weight: bold;
-            border-bottom: 1px solid #ddd;
-        }
+header {
+  background: white;
+  padding: 22px 25px;
+  border-bottom: 1px solid #ddd;
+  font-size: 24px;
+  font-weight: bold;
+}
 
-        main {
-            max-width: 700px;
-            margin: auto;
-            padding: 25px 18px;
-        }
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px 20px;
+}
 
-        h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
+h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
 
-        p {
-            color: #666;
-        }
+.subtitle {
+  color: #666;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
 
-        .buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 25px;
-        }
+.buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
 
-        button {
-            border: none;
-            border-radius: 12px;
-            padding: 14px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 16px 22px;
+  font-size: 17px;
+  cursor: pointer;
+}
 
-        .primary {
-            background: #222;
-            color: white;
-        }
+.primary {
+  background: #222;
+  color: white;
+}
 
-        .secondary {
-            background: white;
-            border: 1px solid #ddd;
-        }
+.secondary {
+  background: white;
+  border: 1px solid #ddd;
+}
 
-        .card {
-            background: white;
-            border-radius: 16px;
-            padding: 20px;
-            margin-top: 25px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-        }
-    </style>
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  margin-top: 25px;
+  box-shadow: 0 5px 20px rgba(0,0,0,.06);
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.form {
+  display: none;
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  margin-top: 25px;
+}
+
+.form.active {
+  display: block;
+}
+
+label {
+  display: block;
+  margin-top: 18px;
+  margin-bottom: 7px;
+  font-weight: bold;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.form-buttons {
+  margin-top: 25px;
+  display: flex;
+  gap: 10px;
+}
+
+.item {
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 18px;
+  margin-top: 15px;
+}
+
+.item h3 {
+  margin: 0 0 8px;
+}
+
+.small {
+  color: #666;
+  white-space: pre-wrap;
+}
+
+.delete {
+  background: #eee;
+  margin-top: 12px;
+  padding: 9px 14px;
+  font-size: 14px;
+}
+
+.hidden {
+  display: none;
+}
+</style>
 </head>
 
 <body>
 
-<header>
-    🤖 Мои ИИ-персонажи
-</header>
+<header>🤖 Мои ИИ-персонажи</header>
 
-<main>
+<div class="container">
 
-    <h1>Добро пожаловать</h1>
+  <h1>Добро пожаловать</h1>
+  <div class="subtitle">
+    Твои персонажи, сценарии и чаты находятся здесь.
+  </div>
 
-    <p>
-        Твои персонажи, сценарии и чаты находятся здесь.
-    </p>
+  <div class="buttons">
+    <button class="primary" onclick="showCharacterForm()">
+      ＋ Создать персонажа
+    </button>
 
-    <div class="buttons">
-        <button class="primary">＋ Создать персонажа</button>
-        <button class="secondary">📖 Создать сценарий</button>
+    <button class="secondary" onclick="showScenarioForm()">
+      📖 Создать сценарий
+    </button>
+  </div>
+
+  <!-- Форма персонажа -->
+
+  <div id="characterForm" class="form">
+
+    <h2>🤖 Создание персонажа</h2>
+
+    <label>Имя персонажа</label>
+    <input id="characterName" placeholder="Например: Алина">
+
+    <label>Пол</label>
+    <select id="characterGender">
+      <option>Не указан</option>
+      <option>Мужской</option>
+      <option>Женский</option>
+      <option>Другой</option>
+    </select>
+
+    <label>Краткое описание</label>
+    <textarea id="characterDescription"
+      placeholder="Кто этот персонаж?"></textarea>
+
+    <label>Характер</label>
+    <textarea id="characterPersonality"
+      placeholder="Опиши характер персонажа..."></textarea>
+
+    <label>Сценарий</label>
+    <textarea id="characterScenario"
+      placeholder="Опиши ситуацию и мир персонажа..."></textarea>
+
+    <label>Первое сообщение</label>
+    <textarea id="characterGreeting"
+      placeholder="Что персонаж скажет пользователю первым?"></textarea>
+
+    <div class="form-buttons">
+      <button class="primary" onclick="saveCharacter()">
+        Сохранить персонажа
+      </button>
+
+      <button class="secondary" onclick="closeForms()">
+        Отмена
+      </button>
     </div>
 
-    <div class="card">
-        <h2>👤 Мои персонажи</h2>
-        <p>Здесь будут отображаться созданные тобой персонажи.</p>
+  </div>
+
+  <!-- Форма сценария -->
+
+  <div id="scenarioForm" class="form">
+
+    <h2>📖 Создание сценария</h2>
+
+    <label>Название сценария</label>
+    <input id="scenarioName"
+      placeholder="Например: Новая жизнь в империи">
+
+    <label>Сценарий</label>
+    <textarea id="scenarioText"
+      style="min-height:300px"
+      placeholder="Напиши здесь свой сценарий..."></textarea>
+
+    <div class="form-buttons">
+
+      <button class="primary" onclick="saveScenario()">
+        Сохранить сценарий
+      </button>
+
+      <button class="secondary" onclick="closeForms()">
+        Отмена
+      </button>
+
     </div>
 
-    <div class="card">
-        <h2>📚 Мои сценарии</h2>
-        <p>Здесь будут отображаться созданные тобой сценарии.</p>
-    </div>
+  </div>
 
-</main>
+  <!-- Персонажи -->
+
+  <div class="card">
+    <h2>👤 Мои персонажи</h2>
+
+    <div id="characters">
+      <div class="small">
+        Здесь будут отображаться созданные тобой персонажи.
+      </div>
+    </div>
+  </div>
+
+  <!-- Сценарии -->
+
+  <div class="card">
+    <h2>📚 Мои сценарии</h2>
+
+    <div id="scenarios">
+      <div class="small">
+        Здесь будут отображаться созданные тобой сценарии.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+
+function showCharacterForm() {
+  document.getElementById("scenarioForm").classList.remove("active");
+  document.getElementById("characterForm").classList.add("active");
+
+  window.scrollTo({
+    top: document.getElementById("characterForm").offsetTop - 20,
+    behavior: "smooth"
+  });
+}
+
+function showScenarioForm() {
+  document.getElementById("characterForm").classList.remove("active");
+  document.getElementById("scenarioForm").classList.add("active");
+
+  window.scrollTo({
+    top: document.getElementById("scenarioForm").offsetTop - 20,
+    behavior: "smooth"
+  });
+}
+
+function closeForms() {
+  document.getElementById("characterForm").classList.remove("active");
+  document.getElementById("scenarioForm").classList.remove("active");
+}
+
+function saveCharacter() {
+
+  const name = document.getElementById("characterName").value.trim();
+
+  if (!name) {
+    alert("Введите имя персонажа.");
+    return;
+  }
+
+  const character = {
+    name: name,
+    gender: document.getElementById("characterGender").value,
+    description: document.getElementById("characterDescription").value,
+    personality: document.getElementById("characterPersonality").value,
+    scenario: document.getElementById("characterScenario").value,
+    greeting: document.getElementById("characterGreeting").value
+  };
+
+  let characters =
+    JSON.parse(localStorage.getItem("characters") || "[]");
+
+  characters.push(character);
+
+  localStorage.setItem(
+    "characters",
+    JSON.stringify(characters)
+  );
+
+  document.getElementById("characterName").value = "";
+  document.getElementById("characterDescription").value = "";
+  document.getElementById("characterPersonality").value = "";
+  document.getElementById("characterScenario").value = "";
+  document.getElementById("characterGreeting").value = "";
+
+  closeForms();
+  displayCharacters();
+}
+
+function saveScenario() {
+
+  const name = document.getElementById("scenarioName").value.trim();
+
+  if (!name) {
+    alert("Введите название сценария.");
+    return;
+  }
+
+  const scenario = {
+    name: name,
+    text: document.getElementById("scenarioText").value
+  };
+
+  let scenarios =
+    JSON.parse(localStorage.getItem("scenarios") || "[]");
+
+  scenarios.push(scenario);
+
+  localStorage.setItem(
+    "scenarios",
+    JSON.stringify(scenarios)
+  );
+
+  document.getElementById("scenarioName").value = "";
+  document.getElementById("scenarioText").value = "";
+
+  closeForms();
+  displayScenarios();
+}
+
+function deleteCharacter(index) {
+
+  let characters =
+    JSON.parse(localStorage.getItem("characters") || "[]");
+
+  characters.splice(index, 1);
+
+  localStorage.setItem(
+    "characters",
+    JSON.stringify(characters)
+  );
+
+  displayCharacters();
+}
+
+function deleteScenario(index) {
+
+  let scenarios =
+    JSON.parse(localStorage.getItem("scenarios") || "[]");
+
+  scenarios.splice(index, 1);
+
+  localStorage.setItem(
+    "scenarios",
+    JSON.stringify(scenarios)
+  );
+
+  displayScenarios();
+}
+
+function displayCharacters() {
+
+  const box = document.getElementById("characters");
+
+  const characters =
+    JSON.parse(localStorage.getItem("characters") || "[]");
+
+  if (characters.length === 0) {
+    box.innerHTML =
+      '<div class="small">Здесь будут отображаться созданные тобой персонажи.</div>';
+    return;
+  }
+
+  box.innerHTML = "";
+
+  characters.forEach((character, index) => {
+
+    box.innerHTML += `
+      <div class="item">
+        <h3>🤖 ${escapeHtml(character.name)}</h3>
+
+        <div class="small">
+          Пол: ${escapeHtml(character.gender)}
+        </div>
+
+        <p>${escapeHtml(character.description)}</p>
+
+        <button class="delete"
+          onclick="deleteCharacter(${index})">
+          Удалить
+        </button>
+      </div>
+    `;
+
+  });
+}
+
+function displayScenarios() {
+
+  const box = document.getElementById("scenarios");
+
+  const scenarios =
+    JSON.parse(localStorage.getItem("scenarios") || "[]");
+
+  if (scenarios.length === 0) {
+    box.innerHTML =
+      '<div class="small">Здесь будут отображаться созданные тобой сценарии.</div>';
+    return;
+  }
+
+  box.innerHTML = "";
+
+  scenarios.forEach((scenario, index) => {
+
+    box.innerHTML += `
+      <div class="item">
+        <h3>📖 ${escapeHtml(scenario.name)}</h3>
+
+        <div class="small">
+          ${escapeHtml(scenario.text)}
+        </div>
+
+        <button class="delete"
+          onclick="deleteScenario(${index})">
+          Удалить
+        </button>
+      </div>
+    `;
+
+  });
+}
+
+function escapeHtml(text) {
+
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+displayCharacters();
+displayScenarios();
+
+</script>
 
 </body>
-  </html>
+        </html>
